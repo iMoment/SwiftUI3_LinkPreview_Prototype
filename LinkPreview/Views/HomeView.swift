@@ -35,13 +35,14 @@ struct HomeView: View {
                         .disableAutocorrection(true)
                     
                     Button {
-                        
+                        messageVM.sendMessage()
                     } label: {
                         Image(systemName: "paperplane")
                             .font(.title3)
                     }
                 }
                 .padding()
+                .padding(.top)
                 .background(.ultraThinMaterial)
             }
             .navigationTitle("Link Preview")
@@ -75,11 +76,13 @@ struct HomeView: View {
             } else {
                 // MARK: Normal message
                 Text(message.messageString)
-                    .padding()
+                    .padding(.vertical, 10)
+                    .padding(.horizontal)
                     .foregroundColor(Color.white)
                     .background(Color.blue)
                     .cornerRadius(10)
-                    .frame(width: getScreenSize().width - 80)
+                    .frame(width: getScreenSize().width - 80, alignment: .trailing)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
             }
         }
     }
