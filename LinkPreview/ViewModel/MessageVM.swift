@@ -9,4 +9,9 @@ import SwiftUI
 
 class MessageVM: ObservableObject {
     @Published var message: String = ""
+    @Published var messages: [Message] = []
+    
+    func sendMessage() {
+        
+    }
 }
