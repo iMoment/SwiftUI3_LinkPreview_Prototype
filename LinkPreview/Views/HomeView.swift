@@ -57,7 +57,11 @@ struct HomeView: View {
             if message.previewLoading {
                 Group {
                     if let metaData = message.linkMetaData {
-                        Text("")
+                        LinkPreview(metaData: metaData)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: getScreenSize().width - 80, alignment: .leading)
+                            .cornerRadius(15)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
                     } else {
                         
                         HStack(spacing: 10) {
@@ -71,6 +75,7 @@ struct HomeView: View {
                         .padding(.horizontal)
                         .background(Color.gray.opacity(0.35))
                         .cornerRadius(10)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
                     }
                 }
             } else {
